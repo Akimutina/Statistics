@@ -6,7 +6,10 @@ public class StatsService {
 
     // Сумму всех продаж
     public int sumSales(int[] sales) {
-        int sum = (int) Arrays.stream(sales).sum();
+        int sum = 0;
+        for (int sale : sales) {
+            sum = sum + sale;
+        }
         return sum;
     }
 
@@ -39,7 +42,7 @@ public class StatsService {
     // Среднюю сумму продаж в месяц
     public int getAverageSum(int[] sales) {
 
-        int sum = (int) Arrays.stream(sales).sum();
+        int sum = sumSales(sales);
         int averageSum = sum / sales.length;
         return averageSum;
     }
